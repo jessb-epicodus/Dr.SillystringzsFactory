@@ -21,7 +21,7 @@ This is a web app is intended to help business manage their engineers and the ma
 
 * This web app uses MySQL as a database.  Install & Account Setup: See _https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql_ for instructions
 * Clone Repo: In your terminal navigate to your desktop or other desired location and enter `git clone https://github.com/jessb-epicodus/Factory.git`
-* Import The Database Schema: In MySql Workbench, navigate to the administration tab, select Data Import/Restore & import _jessi_baker.sql_
+* Import The Database Schema: In MySql Workbench, navigate to the administration tab, select Data Import/Restore & import _jessi_baker_factory.sql_
 * Add Required Packages: Navigate to the top level of the project directory called _ProjectName_ & enter each of the following commands.
   `dotnet add package Microsoft.EntityFrameworkCore -v 5.0.0`
   `dotnet add package Pomelo.EntityFrameworkCore.MySql -v 5.0.0-alpha.2`
