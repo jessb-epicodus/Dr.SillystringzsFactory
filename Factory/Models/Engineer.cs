@@ -7,7 +7,7 @@ namespace Factory.Models {
     }
     public int EngineerId { get; set; }
     public string Company { get; set; }
-    public string PrimaryRep { get; set; }
+    public string Rep { get; set; }
     public string Phone { get; set; }
     public string Email { get; set; }
     public string Address1 { get; set; }

@@ -10,8 +10,8 @@ namespace Factory.Models {
     public DateTime ProductionDate { get; set; }
     public string Make { get; set; }
     public string Model { get; set; }
+    public string SerialId { get; set; }
     public string Manufacturer { get; set; }
-    public string Category { get; set; }
     public bool Warranty { get; set; }
     public bool Status { get; set; }
     public virtual ICollection<EngineerMachine> JoinEntities { get; set; }

@@ -5,7 +5,7 @@ namespace Factory.Controllers {
     [HttpGet("/")]
     public ActionResult Index() {
       //_db.Engineers.OrderBy(engineer => engineer.Company).ToList()
-      //_db.Machines.OrderBy(machine => machine.Category).ToList()
+      //_db.Machines.OrderBy(machine => machine.Status).ToList()
       return View();
     }
   }
