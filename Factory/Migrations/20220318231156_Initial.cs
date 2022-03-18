@@ -14,8 +14,8 @@ namespace Factory.Migrations
                 {
                     EngineerId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    CompanyName = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
-                    PrimaryRep = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
+                    Company = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
+                    Rep = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
                     Phone = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
                     Email = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
                     Address1 = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
@@ -33,12 +33,9 @@ namespace Factory.Migrations
                 {
                     MachineId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ProductionDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Make = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
-                    Model = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
-                    Manufacturer = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
-                    Warranty = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    Status = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                    Date = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    MakeModel = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true),
+                    SerialId = table.Column<string>(type: "longtext CHARACTER SET utf8mb4", nullable: true)
                 },
                 constraints: table =>
                 {

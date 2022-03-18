@@ -17,7 +17,7 @@ namespace Factory.Controllers {
       ViewBag.Engineers = _db.Engineers.ToList();
       ViewBag.Machines = _db.Machines.ToList();
       _db.Engineers.OrderBy(engineer => engineer.Company).ToList();
-      _db.Machines.OrderBy(machine => machine.Manufacturer).ToList();
+      _db.Machines.OrderBy(machine => machine.MakeModel).ToList();
       return View();
     }
   }

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Factory.Migrations
 {
     [DbContext(typeof(FactoryContext))]
-    [Migration("20220318164317_RenameEngCompanyAddMacCategory")]
-    partial class RenameEngCompanyAddMacCategory
+    [Migration("20220318231156_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,7 +43,7 @@ namespace Factory.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("PrimaryRep")
+                    b.Property<string>("Rep")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("EngineerId");
@@ -78,26 +78,14 @@ namespace Factory.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Category")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Make")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Manufacturer")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Model")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<DateTime>("ProductionDate")
+                    b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("tinyint(1)");
+                    b.Property<string>("MakeModel")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<bool>("Warranty")
-                        .HasColumnType("tinyint(1)");
+                    b.Property<string>("SerialId")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("MachineId");
 

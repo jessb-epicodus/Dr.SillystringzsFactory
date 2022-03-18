@@ -10,20 +10,16 @@
   </div>
   @using (Html.BeginForm()) {
     <div class="col-auto">
-      @Html.LabelFor(model => model.Manufacturer)
-      @Html.TextBoxFor(model => model.Manufacturer, new {@class = "form-control", placeholder = "Manufacturer", required="required"})
-    </div>
-    <div class="col-auto">
-      @Html.LabelFor(model => model.Model)
-      @Html.TextBoxFor(model => model.Model, new {@class = "form-control", placeholder = "Model"})
+      @Html.LabelFor(model => model.MakeModel)
+      @Html.TextBoxFor(model => model.MakeModel, new {@class = "form-control", placeholder = "MakeModel", required="required"})
     </div>
     <div class="col-auto">
       @Html.LabelFor(model => model.SerialId)
       @Html.TextBoxFor(model => model.SerialId, new {@class = "form-control", placeholder = "00XXX123X0", required="required"})
     </div>
     <div class="col-auto">
-      @Html.LabelFor(model => model.ProductionDate)
-      @Html.TextBoxFor(model => model.ProductionDate, new {@type = "date", @class="form-control"})
+      @Html.LabelFor(model => model.Date)
+      @Html.TextBoxFor(model => model.Date, new {@type = "date", @class="form-control"})
     </div>
     <input type="submit" value="Submit" class="btn btn-dark" />
   }

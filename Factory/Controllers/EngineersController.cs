@@ -14,7 +14,9 @@ namespace Factory.Controllers {
     }
     public ActionResult Index()
     {
+      List<Engineer> model = _db.Engineers.ToList();
       ViewBag.Engineers = _db.Engineers.ToList();
+      ViewBag.PageTitle = "Engineers";
       return View(_db.Engineers.OrderBy(engineer => engineer.Company).ToList());
     }    
     public ActionResult Create() {
@@ -32,6 +34,7 @@ namespace Factory.Controllers {
       return RedirectToAction("Details");
     }
     public ActionResult Details(int id) {
+    
     var thisEngineer = _db.Engineers
       .Include(engineer => engineer.JoinEntities)
       .ThenInclude(join => join.Machine)

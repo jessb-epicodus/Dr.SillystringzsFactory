@@ -1,5 +1,5 @@
 @{Layout = "_Layout";}
-@using System
+
 @using Factory.Models;
 @model Factory.Models.EngineerMachine;
 
@@ -31,9 +31,9 @@
       <h2>Machines</h2>
       <p>
         @if(@ViewBag.Machines.Count == 0) {
-          <em>No engineers have been entered</em>
+          <em>No machines have been entered</em>
         } @foreach(Machine machine in ViewBag.Machines) {
-          @Html.ActionLink($"{machine.Manufacturer}", "Details", new {id= machine.MachineId}) @Html.ActionLink($"{machine.Model}", "Details", new {id= machine.MachineId})
+          @Html.ActionLink($"{machine.MakeModel}", "Details", "Machines", new {id= machine.MachineId})<br>
         }
       </p>
       <form method="get" action="/Machines/Create">

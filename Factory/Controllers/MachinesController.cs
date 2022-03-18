@@ -15,7 +15,7 @@ namespace Factory.Controllers {
     public ActionResult Index()
     {
       ViewBag.Machines = _db.Machines.ToList();
-      return View(_db.Machines.OrderBy(machine => machine.Manufacturer).ToList());
+      return View(_db.Machines.OrderBy(machine => machine.MakeModel).ToList());
     }
     public ActionResult Create() {
       ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Company");

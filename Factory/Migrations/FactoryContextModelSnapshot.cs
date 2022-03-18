@@ -76,14 +76,11 @@ namespace Factory.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Manufacturer")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Model")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<DateTime>("ProductionDate")
+                    b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<string>("MakeModel")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("SerialId")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
