@@ -8,23 +8,7 @@
     <title>@ViewBag.PageTitle</title>
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-dark menus">
-    <div class="container-fluid">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/">Home</a>
-      </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-            Engineers
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/Engineers/Index">View All</a></li>
-            <li><a class="dropdown-item" href="/Engineers/Create">Add Engineer</a></li>
-          </ul>
-        </li>
-      </div>
-    </div>
-  </nav>
+    <div id="header"><p>@Html.ActionLink("Home", "Index", "Home")  |  @Html.ActionLink("Engineers", "Index", "Engineers")  |    @Html.ActionLink("Machines", "Index", "Machines")</p></div>
     <div class=container>
       @RenderBody()
     </div>

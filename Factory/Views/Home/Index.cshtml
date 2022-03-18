@@ -18,7 +18,7 @@
         @if(@ViewBag.Engineers.Count == 0) {
           <em>No engineers have been entered</em>
         } @foreach(Engineer engineer in ViewBag.Engineers) {
-          @Html.ActionLink($"{engineer.Company}", "Details", new {id= engineer.EngineerId})
+          @Html.ActionLink($"{engineer.Company}", "Engineers", new {id= engineer.EngineerId})<br>
         }
       </p>
       <form method="get" action="/Engineers/Create">
@@ -33,7 +33,7 @@
         @if(@ViewBag.Machines.Count == 0) {
           <em>No engineers have been entered</em>
         } @foreach(Machine machine in ViewBag.Machines) {
-          @Html.ActionLink($"{machine.Make}", "Details", new {id= machine.MachineId}) @Html.ActionLink($"{machine.Model}", "Details", new {id= machine.MachineId})
+          @Html.ActionLink($"{machine.Manufacturer}", "Details", new {id= machine.MachineId}) @Html.ActionLink($"{machine.Model}", "Details", new {id= machine.MachineId})
         }
       </p>
       <form method="get" action="/Machines/Create">
