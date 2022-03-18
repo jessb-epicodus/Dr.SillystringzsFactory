@@ -6,7 +6,7 @@ namespace Factory.Models {
       this.JoinEntities = new HashSet<EngineerMachine>();
     }
     public int EngineerId { get; set; }
-    public string CompanyName { get; set; }
+    public string Company { get; set; }
     public string PrimaryRep { get; set; }
     public string Phone { get; set; }
     public string Email { get; set; }

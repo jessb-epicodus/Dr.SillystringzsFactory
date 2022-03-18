@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ProjectName.Controllers {
+namespace Factory.Controllers {
   public class HomeController : Controller {
     [HttpGet("/")]
     public ActionResult Index() {
+      //_db.Engineers.OrderBy(engineer => engineer.Company).ToList()
+      //_db.Machines.OrderBy(machine => machine.Category).ToList()
       return View();
     }
   }
