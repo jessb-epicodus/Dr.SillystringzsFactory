@@ -1,5 +1,8 @@
 @{Layout = "_Layout";}
 
+@using Factory.Models;
+@model Factory.Models.EngineerMachine;
+
 <div class="p-5 mb-4 bg-light rounded-3">
   <div class="container-fluid py-5">
     <h1 class="display-5 fw-bold">Dr. Sillystringz's Factory</h1>
@@ -12,18 +15,26 @@
     <div class="h-100 p-5 text-white bg-dark rounded-3">
       <h2>Engineers</h2>
       <p>
-        list engineers here
+        @if(@Model.EngineerId == 0) {
+          <p><em>No engineers have been entered</em></p>
+        } @foreach(Engineer engineer in Model) {
+          <h5>@Html.DisplayFor(model => model.Engineer.Company)</h5>
+        }
       </p>
-      <button class="btn btn-outline-light" type="button">New Engineer</button>
+      <form method="get" action="/Engineers/Create">
+        <button class="btn btn-outline-light" type="submit">Add Engineer</button>
+      </form>
     </div>
   </div>
   <div class="col-md-6">
     <div class="h-100 p-5 text-white bg-dark rounded-3">
       <h2>Machines</h2>
       <p>
-        list engineers here
+        list machines here
       </p>
-      <button class="btn btn-outline-light" type="button">Add Machine</button>
+      <form method="get" action="/Machines/Create">
+        <button class="btn btn-outline-light" type="submit">Add Machine</button>
+      </form>
     </div>
   </div>
 </div>
