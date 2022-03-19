@@ -2,50 +2,60 @@
 
 @using Factory.Models;
 
-<h1>Engineers</h1><hr>
-
-@if (@Model.Count == 0 ) {
-  <em>No engineers have been added yet</em>
-} 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
-      <th scope="col"data-sortable="true">Company Name</th>
-      <th scope="col">Primany Contact</th>
-      <th scope="col">Phone Number</th>
-      <th scope="col">Email Address</th>
-      <th scope="col">Address</th>
-      <th scope="col">Business Hours</th>
-      <th scope="col"data-sortable="true">Machines Serviced</th>
-    </tr>
-  </thead>
-  <tbody>
-  @foreach(Engineer engineer in Model) {
-    <tr>
-      <th scope="row"></th>
-      <td>
-        @using(@Html.BeginForm("UpdateStatus", "Edit")) {
-          @Html.Hidden("id", engineer.EngineerId)
-          <button type="submit" class="btn btn-default">⌨</button>
-        }
-      </td>
-      <td>
-        @using(@Html.BeginForm("Delete", "Engineers")) {
-          @Html.Hidden("id", engineer.EngineerId)
-          <button type="submit" class="btn btn-default">🗑</button>
-        }
-      </td>
-      <td>@Html.DisplayFor(model => engineer.Rep)</td>
-      <td>@Html.DisplayFor(model => engineer.Rep)</td>
-      <td>@Html.DisplayFor(model => engineer.Phone)</td>
-      <td>@Html.DisplayFor(model => engineer.Email)</td>
-      <td>@Html.DisplayFor(model => engineer.Address1) <br> @Html.DisplayFor(model => engineer.Address2)</td>
-      <td>@Html.DisplayFor(model => engineer.Hours)</td>
-      <td>list machines here</td>
-    </tr>
-  }
-  </tbody>
-</table>
+<div class="card">
+  <div class="card-header">
+    <h3>Engineers</h3>
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">@Html.ActionLink("➕", "Create")</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+            <th scope="col"data-sortable="true">Company Name</th>
+            <th scope="col">Primany Contact</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Email Address</th>
+            <th scope="col">Address</th>
+            <th scope="col">Business Hours</th>
+            <th scope="col"data-sortable="true">Machines Serviced</th>
+          </tr>
+        </thead>
+        <tbody>
+          @if (@Model.Count == 0 ) {
+            <tr>
+              <th scope="row"></th>
+              <td colspan="9"><em>No engineers have been added yet</em></td>
+          </tr>
+          } 
+          @foreach(Engineer engineer in Model) {
+            <tr>
+              <th scope="row"></th>
+              <td>
+                @using(@Html.BeginForm("Edit", "Engineers")) {
+                  @Html.Hidden("id", engineer.EngineerId)
+                  <button type="submit" class="btn btn-default">⌨</button>
+                }
+              </td>
+              <td>
+                @using(@Html.BeginForm("Delete", "Engineers")) {
+                  @Html.Hidden("id", engineer.EngineerId)
+                  <button type="submit" class="btn btn-default">🗑</button>
+                }
+              </td>
+              <td>@Html.DisplayFor(model => engineer.Rep)</td>
+              <td>@Html.DisplayFor(model => engineer.Rep)</td>
+              <td>@Html.DisplayFor(model => engineer.Phone)</td>
+              <td>@Html.DisplayFor(model => engineer.Email)</td>
+              <td>@Html.DisplayFor(model => engineer.Address1) <br> @Html.DisplayFor(model => engineer.Address2)</td>
+              <td>@Html.DisplayFor(model => engineer.Hours)</td>
+              <td>list machines here</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
