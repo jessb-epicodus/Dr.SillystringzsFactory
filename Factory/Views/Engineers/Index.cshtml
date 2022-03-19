@@ -1,7 +1,6 @@
 @{Layout = "_Layout";}
 
 @using Factory.Models;
-@* @model Factory.Models.Engineer; *@
 
 <h1>Engineers</h1><hr>
 
@@ -11,8 +10,9 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col"> </th>
-      <th scope="col"> </th>
+      <th scope="col"></th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
       <th scope="col"data-sortable="true">Company Name</th>
       <th scope="col">Primany Contact</th>
       <th scope="col">Phone Number</th>
@@ -26,8 +26,19 @@
   @foreach(Engineer engineer in Model) {
     <tr>
       <th scope="row"></th>
-      <td></td>
-      <td>@Html.ActionLink($"{engineer.Company}", "Details", new { id = engineer.EngineerId })</td>
+      <td>
+        @using(@Html.BeginForm("UpdateStatus", "Edit")) {
+          @Html.Hidden("id", engineer.EngineerId)
+          <button type="submit" class="btn btn-default">⌨</button>
+        }
+      </td>
+      <td>
+        @using(@Html.BeginForm("Delete", "Engineers")) {
+          @Html.Hidden("id", engineer.EngineerId)
+          <button type="submit" class="btn btn-default">🗑</button>
+        }
+      </td>
+      <td>@Html.DisplayFor(model => engineer.Rep)</td>
       <td>@Html.DisplayFor(model => engineer.Rep)</td>
       <td>@Html.DisplayFor(model => engineer.Phone)</td>
       <td>@Html.DisplayFor(model => engineer.Email)</td>
