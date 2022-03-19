@@ -1,4 +1,10 @@
 @{Layout = "_Layout";}
 
-@using Factory.Models;
 @model Factory.Models.Engineer;
+
+<h5>Are you sure you want to delete this?</h5>
+
+@Html.DisplayNameFor(model => model.Company): @Html.DisplayFor(model => model.Company)
+@using (Html.BeginForm()) {
+  <input type="submit" value="Delete" />
+}

@@ -35,10 +35,6 @@
       @Html.LabelFor(model => model.Hours)
       @Html.TextBoxFor(model => model.Hours, new {@class = "form-control", placeholder = "M-F 8-5", required="required"})
     </div>
-      <div class="col-auto">
-      @Html.Label("Machines Serviced:")
-      @Html.DropDownList("MachineId")
-    </div>
     <input type="submit" value="Submit" class="btn btn-dark"/>
   }
 </form>

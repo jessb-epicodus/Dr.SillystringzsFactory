@@ -1,57 +1,40 @@
 @{Layout = "_Layout";}
 
 @using Factory.Models;
+@* @model Factory.Models.Engineer; *@
 
 <h1>Engineers</h1><hr>
 
 @if (@Model.Count == 0 ) {
   <em>No engineers have been added yet</em>
 } 
-  <table class="table table-striped table-hover">
-    <thead>
-      <tr>
-        <th scope="col"data-sortable="true">Company Name</th>
-        <th scope="col">Primany Contact</th>
-        <th scope="col">Phone Number</th>
-        <th scope="col">Email Address</th>
-        <th scope="col">Business Hours</th>
-        <th scope="col"data-sortable="true">Machines Serviced</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        @foreach(Engineer engineer in Model)
-        {
-          <td>@Html.ActionLink($"{engineer.Company}", "Details", new { id = engineer.EngineerId })</td>
-        }
-      </tr>
-      <tr>
-        @foreach(Engineer engineer in Model)
-        {
-          @* <td>@Html.DisplayFor(model => model.Rep)</td> *@
-        }
-      </tr>
-      <tr>
-        @foreach(Engineer engineer in Model)
-        {
-          <td>@Html.DisplayFor(model => model.Phone)</td>
-        }
-      </tr>
-      <tr>
-        <th scope="row">Email Address:  </th>
-        loop through comanies & display as <td>email</td>
-      </tr>
-      <tr>
-        <th scope="row">Address: </th>
-        loop through comanies & display as <td>Address1 & Address2</td>
-      </tr>
-      <tr>
-        <th scope="row">Business Hours: </th>
-        loop through comanies & display as <td>Hours</td>
-      </tr>
-      <tr>
-        <th scope="row">Machines Serviced: </th>
-        loop through comanies & display as <td>Machines</td>
-      </tr>
-    </tbody>
-  </table>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"> </th>
+      <th scope="col"> </th>
+      <th scope="col"data-sortable="true">Company Name</th>
+      <th scope="col">Primany Contact</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Email Address</th>
+      <th scope="col">Address</th>
+      <th scope="col">Business Hours</th>
+      <th scope="col"data-sortable="true">Machines Serviced</th>
+    </tr>
+  </thead>
+  <tbody>
+  @foreach(Engineer engineer in Model) {
+    <tr>
+      <th scope="row"></th>
+      <td></td>
+      <td>@Html.ActionLink($"{engineer.Company}", "Details", new { id = engineer.EngineerId })</td>
+      <td>@Html.DisplayFor(model => engineer.Rep)</td>
+      <td>@Html.DisplayFor(model => engineer.Phone)</td>
+      <td>@Html.DisplayFor(model => engineer.Email)</td>
+      <td>@Html.DisplayFor(model => engineer.Address1) <br> @Html.DisplayFor(model => engineer.Address2)</td>
+      <td>@Html.DisplayFor(model => engineer.Hours)</td>
+      <td>list machines here</td>
+    </tr>
+  }
+  </tbody>
+</table>
