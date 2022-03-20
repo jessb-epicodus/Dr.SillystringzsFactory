@@ -7,7 +7,19 @@
     <h3>Machine Details</h3>
   </div>
   <div class="card-body">
-    <h5 class="card-title">@Html.DisplayFor(model => model.MakeModel)</h5>
+    <h5 class="card-title">
+      <span style="text-align:left;">@Html.DisplayFor(model => model.MakeModel)</span>
+      <span style="float:right;">
+        @using(@Html.BeginForm("Edit", "Machines")) {
+          @Html.Hidden("id", @Model.MachineId)
+          <button type="submit" class="btn btn-default">⌨</button>
+        }
+        @using(@Html.BeginForm("Delete", "Machines")) {
+          @Html.Hidden("id", @Model.MachineId)
+          <button type="submit" class="btn btn-default">🗑</button>
+        }
+      </span>
+    </h5>
     <p class="card-text">
       <table class="table table-striped">
         <tbody>

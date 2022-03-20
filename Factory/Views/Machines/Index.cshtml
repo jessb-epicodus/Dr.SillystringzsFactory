@@ -41,7 +41,7 @@
                   <button type="submit" class="btn btn-default">🗑</button>
                 }
               </td>
-              <td>@Html.ActionLink($"{machine.MakeModel}", "Details", new { id = machine.MachineId })</td>
+              <td>@Html.DisplayFor(model => machine.MakeModel)</td>
               <td>@Html.DisplayFor(model => machine.SerialId)</td>
               <td>list machines here</td>
             </tr>
