@@ -3,21 +3,26 @@
 @using Factory.Models;
 @model Factory.Models.Machine;
 
-<div class="row g-3 align-items-center">
-  <div class="col-auto">
-    <h2>New Machine</h2>
-    <p></p>
-    <hr>
+<h5><br></h5>
+<div class="card">
+  <div class="card-header">
+    <h3>New Machine</h3>
   </div>
-  @using (Html.BeginForm()) {
-    <div class="col-auto">
-      @Html.LabelFor(model => model.MakeModel)
-      @Html.TextBoxFor(model => model.MakeModel, new {@class = "form-control", placeholder = "MakeModel", required="required"})
-    </div>
-    <div class="col-auto">
-      @Html.LabelFor(model => model.SerialId)
-      @Html.TextBoxFor(model => model.SerialId, new {@class = "form-control", placeholder = "00XXX123X0", required="required"})
-    </div>
-    <input type="submit" value="Submit" class="btn btn-dark" />
-  }
-</form>
+  <div class="card-body">
+    <p class="card-text">
+      <div class="col-auto">
+      @using (Html.BeginForm()) {
+        <div class="col-auto">
+          Make & Model
+          @Html.TextBoxFor(model => model.MakeModel, new {@class = "form-control", placeholder = "Make Model", required="required"})
+        </div>
+        <div class="col-auto">
+          Serial Number
+          @Html.TextBoxFor(model => model.SerialId, new {@class = "form-control", placeholder = "00XXX123X0", required="required"})
+        </div>
+        <br>
+        <input type="submit" value="Submit" class="btn btn-dark" />
+      }
+    </p>
+  </div>
+</div>

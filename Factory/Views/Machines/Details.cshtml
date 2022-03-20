@@ -2,35 +2,43 @@
 
 @model Factory.Models.Machine;
 
-<h3>Machine Details</h3><hr>
-<table class="table table-striped table-hover">
-  <thead>
-      <th scope="col">MakeModelHere</th>
-      <th scope="col"></th>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Serial ID </th>
-      <td>XX00X123</td>
-    </tr>
-    <tr>
-      <th scope="row">Production Date  </th>
-      <td>####</td>
-    </tr>
-    <tr>
-      <th scope="row">Serviced By </th>
-      <td>Engineers</td>
-    </tr>
-  </tbody>
-</table>
-<div class="row justify-content-md-center">
-  <form method="get" action="/Machines/Create">
-    <button class="btn btn-dark" type="submit">Add Engineers</button>
-  </form>  
-  <form method="get" action="/Machines/Edit">
-    <button class="btn btn-dark" type="submit">Edit</button>
-  </form>  
-  <form method="get" action="/Machines/Delete">
-    <button class="btn btn-dark" type="submit">Delete</button>
-  </form>
+<div class="card">
+  <div class="card-header">
+    <h3>Machine Details</h3>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">@Html.DisplayFor(model => model.MakeModel)</h5>
+    <p class="card-text">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th scope="row">Serial ID </th>
+            <td>@Html.DisplayFor(model => model.SerialId)</td>
+          </tr>
+          <tr>
+            <th scope="row">Serviced By</th>
+              <td>
+                @foreach(var join in Model.JoinEntities) { 
+                  @if(@Model.JoinEntities.Count == 0) {
+                    <em>No machines have been added</em>
+                  } 
+                    @join.Engineer.Company
+                }
+                </td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
+    <div class="row justify-content-md-center">
+      <form method="get" action="/Machines/Create">
+        <button class="btn btn-dark" type="submit">Add Engineers</button>
+      </form>  
+      <form method="get" action="/Machines/Edit">
+        <button class="btn btn-dark" type="submit">Edit</button>
+      </form>  
+      <form method="get" action="/Machines/Delete">
+        <button class="btn btn-dark" type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
 </div>

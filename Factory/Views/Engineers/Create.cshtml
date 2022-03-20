@@ -3,38 +3,44 @@
 @using Factory.Models;
 @model Factory.Models.Engineer;
 
-<div class="row g-3 align-items-center">
-  <div class="col-auto">
-    <h2>New Engineer</h2>
-    <p></p>
-    <hr>
+<h5><br></h5>
+<div class="card">
+  <div class="card-header">
+  <h3>New Engineer</h3>
   </div>
-  @using (Html.BeginForm()) {
-    <div class="col-auto">
-      @Html.LabelFor(model => model.Company)
-      @Html.TextBoxFor(model => model.Company, new {@class = "form-control", placeholder = "Company", required="required"})
+  <div class="card-body">
+    <p class="card-text">
+      <div class="col-auto">
+      @using (Html.BeginForm()) {
+        <div class="col-auto">
+          Company Name
+          @Html.TextBoxFor(model => model.Company, new {@class = "form-control", placeholder = "Company", required="required"})
+        </div>
+        <div class="col-auto">
+          Primary Contact
+          @Html.TextBoxFor(model => model.Rep, new {@class = "form-control", placeholder = "Name"})
+        </div>
+        <div class="col-auto">
+          @Html.LabelFor(model => model.Phone)
+          @Html.TextBoxFor(model => model.Phone, new {@class = "form-control", placeholder = "(###)###-####", required="required"})
+        </div>
+        <div class="col-auto">
+          Email Address
+          @Html.TextBoxFor(model => model.Email, new {@class = "form-control", placeholder = "name@email.com", required="required"})
+        </div>
+        <div class="col-auto">
+          Address
+          @Html.TextBoxFor(model => model.Address1, new {@class = "form-control", placeholder = "Street", required="required"})
+          @Html.TextBoxFor(model => model.Address2, new {@class = "form-control", placeholder = "City, State Zipcode", required="required"})
+        </div>
+        <div class="col-auto">
+          Business Hours
+          @Html.TextBoxFor(model => model.Hours, new {@class = "form-control", placeholder = "M-F 8-5", required="required"})
+        </div>
+        <br>
+        <input type="submit" value="Submit" class="btn btn-dark"/>
+        }
+      </p>
     </div>
-    <div class="col-auto">
-      @Html.LabelFor(model => model.Rep)
-      @Html.TextBoxFor(model => model.Rep, new {@class = "form-control", placeholder = "Name"})
-    </div>
-    <div class="col-auto">
-      @Html.LabelFor(model => model.Phone)
-      @Html.TextBoxFor(model => model.Phone, new {@class = "form-control", placeholder = "(###)###-####", required="required"})
-    </div>
-    <div class="col-auto">
-      @Html.LabelFor(model => model.Email)
-      @Html.TextBoxFor(model => model.Email, new {@class = "form-control", placeholder = "email@email.com", required="required"})
-    </div>
-    <div class="col-auto">
-      @Html.LabelFor(model => model.Address1)
-      @Html.TextBoxFor(model => model.Address1, new {@class = "form-control", placeholder = "Street", required="required"})
-      @Html.TextBoxFor(model => model.Address2, new {@class = "form-control", placeholder = "City, State Zipcode", required="required"})
-    </div>
-    <div class="col-auto">
-      @Html.LabelFor(model => model.Hours)
-      @Html.TextBoxFor(model => model.Hours, new {@class = "form-control", placeholder = "M-F 8-5", required="required"})
-    </div>
-    <input type="submit" value="Submit" class="btn btn-dark"/>
-  }
-</form>
+  </div>
+</div>

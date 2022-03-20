@@ -32,9 +32,9 @@ namespace Factory.Controllers {
     }
     public ActionResult Details(int id) {
     var thisMachine = _db.Machines
-        .Include(machine => machine.JoinEntities)
-        .ThenInclude(join => join.Engineer)
-        .FirstOrDefault(machine => machine.MachineId == id);
+      .Include(machine => machine.JoinEntities)
+      .ThenInclude(join => join.Engineer)
+      .FirstOrDefault(machine => machine.MachineId == id);
     return View(thisMachine);
     }
     public ActionResult Edit(int id) {

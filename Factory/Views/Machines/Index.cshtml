@@ -8,46 +8,46 @@
   </div>
   <div class="card-body">
     <p class="card-text">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">@Html.ActionLink("➕", "Create")</th>
-          <th scope="col">Edit</th>
-          <th scope="col">Delete</th>
-          <th scope="col"data-sortable="true">Make & Model</th>
-          <th scope="col">Serial Number</th>
-          <th scope="col">Serviced By</th>
-        </tr>
-      </thead>
-      <tbody>
-        @if (@Model.Count == 0 ) {
+      <table class="table table-striped">
+        <thead>
           <tr>
-            <th scope="row"></th>
-            <td colspan="5"><em>No machines have been added yet</em></td>
+            <th scope="col">@Html.ActionLink("➕", "Create")</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+            <th scope="col"data-sortable="true">Make & Model</th>
+            <th scope="col">Serial Number</th>
+            <th scope="col">Serviced By</th>
           </tr>
-        } 
-        @foreach(Machine machine in Model) {
-          <tr>
-            <th scope="row"></th>
-            <td>
-              @using(@Html.BeginForm("Edit", "Machines")) {
-                @Html.Hidden("id", machine.MachineId)
-                <button type="submit" class="btn btn-default">⌨</button>
-              }
-            </td>
-            <td>
-              @using(@Html.BeginForm("Delete", "Machines")) {
-                @Html.Hidden("id", machine.MachineId)
-                <button type="submit" class="btn btn-default">🗑</button>
-              }
-            </td>
-            <td>@Html.ActionLink($"{machine.MakeModel}", "Details", new { id = machine.MachineId })</td>
-            <td>@Html.DisplayFor(model => machine.SerialId)</td>
-            <td>list machines here</td>
-          </tr>
-        }
-      </tbody>
-    </table>
-    </div>
+        </thead>
+        <tbody>
+          @if (@Model.Count == 0 ) {
+            <tr>
+              <th scope="row"></th>
+              <td colspan="5"><em>No machines have been added yet</em></td>
+            </tr>
+          } 
+          @foreach(Machine machine in Model) {
+            <tr>
+              <th scope="row"></th>
+              <td>
+                @using(@Html.BeginForm("Edit", "Machines")) {
+                  @Html.Hidden("id", machine.MachineId)
+                  <button type="submit" class="btn btn-default">⌨</button>
+                }
+              </td>
+              <td>
+                @using(@Html.BeginForm("Delete", "Machines")) {
+                  @Html.Hidden("id", machine.MachineId)
+                  <button type="submit" class="btn btn-default">🗑</button>
+                }
+              </td>
+              <td>@Html.ActionLink($"{machine.MakeModel}", "Details", new { id = machine.MachineId })</td>
+              <td>@Html.DisplayFor(model => machine.SerialId)</td>
+              <td>list machines here</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </p>
   </div>
 </div>
