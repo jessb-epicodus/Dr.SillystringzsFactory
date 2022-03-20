@@ -17,7 +17,6 @@ namespace Factory.Controllers {
       return View(_db.Machines.OrderBy(machine => machine.MakeModel).ToList());
     }
     public ActionResult Create() {
-      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Company");
       return View();
     }
     [HttpPost]
@@ -28,7 +27,8 @@ namespace Factory.Controllers {
         _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
         _db.SaveChanges();
       }
-      return RedirectToAction("Details");
+      return RedirectToAction("Details", new {id= machine.MachineId});
+      
     }
     public ActionResult Details(int id) {
     var thisMachine = _db.Machines

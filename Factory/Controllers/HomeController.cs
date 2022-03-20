@@ -14,10 +14,10 @@ namespace Factory.Controllers {
     }
     [HttpGet("/")]
     public ActionResult Index() {
-      ViewBag.Engineers = _db.Engineers.ToList();
-      ViewBag.Machines = _db.Machines.ToList();
-      _db.Engineers.OrderBy(engineer => engineer.Company).ToList();
-      _db.Machines.OrderBy(machine => machine.MakeModel).ToList();
+      ViewBag.Engineers = _db.Engineers.OrderBy(engineer => engineer.Company).ToList();
+      ViewBag.Machines = _db.Machines.OrderBy(machine => machine.MakeModel).ToList();
+      // _db.Engineers.OrderBy(engineer => engineer.Company).ToList();
+      // _db.Machines.OrderBy(machine => machine.MakeModel).ToList();
       return View();
     }
   }

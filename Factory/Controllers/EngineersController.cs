@@ -15,11 +15,9 @@ namespace Factory.Controllers {
     public ActionResult Index() {
       List<Engineer> model = _db.Engineers.ToList();
       ViewBag.Engineers = _db.Engineers.ToList();
-      ViewBag.PageTitle = "Engineers";
       return View(_db.Engineers.OrderBy(engineer => engineer.Company).ToList());
-    }    
+    }
     public ActionResult Create() {
-      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Make","Model");
       return View();
     }
     [HttpPost]
@@ -30,7 +28,7 @@ namespace Factory.Controllers {
         _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
         _db.SaveChanges();
       }
-      return RedirectToAction("Details");
+      return RedirectToAction("Details", new {id= engineer.EngineerId});
     }
     public ActionResult Details(int id) {
     var thisEngineer = _db.Engineers

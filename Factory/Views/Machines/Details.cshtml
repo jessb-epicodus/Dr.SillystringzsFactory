@@ -18,12 +18,12 @@
           <tr>
             <th scope="row">Serviced By</th>
               <td>
-                @foreach(var join in Model.JoinEntities) { 
+                @* @foreach(var join in Model.JoinEntities) { 
                   @if(@Model.JoinEntities.Count == 0) {
                     <em>No machines have been added</em>
                   } 
                     @join.Engineer.Company
-                }
+                } *@
                 </td>
           </tr>
         </tbody>
