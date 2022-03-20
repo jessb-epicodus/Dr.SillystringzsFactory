@@ -46,34 +46,28 @@
           <tr>
             <th scope="row">Licensed to Service</th>
             <td>
-              @* @foreach(var join in Model.JoinEntities) { 
-                @if(@Model.JoinEntities.Count == 0) {
-                  <em>No machines have been added</em>
-                } 
-                  @join.Machine.MakeModel <br>
+              @if(@Model.JoinEntities.Count == 0) {
+                <em>No machines have been added</em>
+              } 
+              @foreach(var join in Model.JoinEntities) { 
+                <div class="row">
+                  @join.Machine.MakeModel 
+                  @using(@Html.BeginForm("DeleteMachine", "Engineers")) {
+                    @Html.Hidden("joinId", @join.EngineerMachineId)
+                    <input type="submit" value="❌"/>
+                  }
+                </div>
               }
-              <p>@Html.ActionLink("➕", "AddMachine", new { id = Model.EngineerId })</p> *@
-
-              @* Add Machine
-              @Html.DropDownList("MachineId") *@
-              </td>
+              @using (Html.BeginForm("AddMachine", "Engineers"))
+              {
+                @Html.HiddenFor(model => model.EngineerId)
+                @Html.DropDownList("MachineId")
+                <input type="submit" value="➕" />
+              }
+            </td>
           </tr>
         </tbody>
       </table>
     </p>
-    <div class="row justify-content-md-center">
-      <form method="get" action="/Engineers/Create">
-        <button class="btn btn-dark" type="submit">Add Machine</button>
-      </form>  
-    </div>
   </div>
 </div>
-
-@*                 @using(@Html.BeginForm("Edit", "Engineers")) {
-                  @Html.Hidden("id", engineer.EngineerId)
-                  <button type="submit" class="btn btn-default">⌨</button>
-                } *@
-@*                 @using(@Html.BeginForm("Delete", "Engineers")) {
-                  @Html.Hidden("id", engineer.EngineerId)
-                  <button type="submit" class="btn btn-default">🗑</button>
-                } *@

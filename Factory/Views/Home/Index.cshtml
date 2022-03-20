@@ -2,7 +2,7 @@
 
 @using Factory.Models;
 @model Factory.Models.EngineerMachine;
-<br>
+
 <div class="p-5 mb-4 bg-light rounded-3">
   <div class="container-fluid py-5">
     <h1 class="display-5 fw-bold">Dr. Sillystringz's Factory</h1>
@@ -25,9 +25,6 @@
         <form method="get" action="/Engineers/Create">
           <button class="btn btn-outline-light" type="submit">Add Engineer</button>
         </form>
-        <form method="get" action="/Engineers/Index">
-          <button class="btn btn-outline-light" type="submit">View All</button>
-        </form>
       </div>
     </div>
   </div>
@@ -44,9 +41,6 @@
       <div class="row">
         <form method="get" action="/Machines/Create">
           <button class="btn btn-outline-light" type="submit">Add Machine</button>
-        </form>
-        <form method="get" action="/Machines/Index">
-          <button class="btn btn-outline-light" type="submit">View All</button>
         </form>
       </div>
     </div>
