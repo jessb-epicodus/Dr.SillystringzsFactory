@@ -15,14 +15,14 @@
         @Html.HiddenFor(model => model.EngineerId)
         <div class="col-auto">
           Company Name
-          @Html.EditorFor(model => model.Company, new {@class = "form-control", required="required"})
+          @Html.EditorFor(model => model.Company, new {@class = "form-control"})
         </div>
         <div class="col-auto">
           Primary Contact
           @Html.EditorFor(model => model.Rep, new {@class = "form-control"})
         </div>
         <div class="col-auto">
-          @Html.LabelFor(model => model.Phone)
+          Phone Number
           @Html.EditorFor(model => model.Phone, new {@class = "form-control",  required="required"})
         </div>
         <div class="col-auto">

@@ -1,6 +1,5 @@
 @{Layout = "_Layout";}
 
-@using System.Collections.Generic;
 @using Factory.Models;
 
 <div class="card">
@@ -44,13 +43,12 @@
               <td>@Html.DisplayFor(model => engineer.Phone)</td>
               <td>@Html.DisplayFor(model => engineer.Hours)</td>
               <td>
-                list machines 
-                @* @if(@ViewBag.join.Machine.Count == 0) {
+                @if(@ViewBag.Count == 0) {
                   <em>No machines have been added</em>
                 } 
-                @foreach(var join in ViewBag.JoinEntities) { 
-                  @join.Machine.MakeModel 
-                } *@
+                @foreach(var join in engineer.JoinEntities) { 
+                  @join.Machine.MakeModel <br>
+                }
               </td>
             </tr>
           }

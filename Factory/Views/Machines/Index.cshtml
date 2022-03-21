@@ -41,7 +41,14 @@
               </td>
               <td>@Html.ActionLink($"{machine.MakeModel}", "Details", "Machines", new {id= machine.MachineId})</td>
               <td>@Html.DisplayFor(model => machine.SerialId)</td>
-              <td>list machines here</td>
+              <td>
+                  @if(@ViewBag.Count == 0) {
+                  <em>No machines have been added</em>
+                } 
+                @foreach(var join in machine.JoinEntities) { 
+                  @join.Engineer.Company <br>
+                }
+              </td>
             </tr>
           }
         </tbody>
