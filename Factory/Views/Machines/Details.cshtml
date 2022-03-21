@@ -11,10 +11,7 @@
     <h5 class="card-title">
       <span style="text-align:left;">@Html.DisplayFor(model => model.MakeModel)</span>
       <span style="float:right;">
-        @using(@Html.BeginForm("Edit", "Machines")) {
-          @Html.Hidden("id", @Model.MachineId)
-          <button type="submit" class="btn btn-default">⌨</button>
-        }
+        @Html.ActionLink("⌨", "Edit", new { id = Model.MachineId })
         @using(@Html.BeginForm("Delete", "Machines")) {
           @Html.Hidden("id", @Model.MachineId)
           <button type="submit" class="btn btn-default">🗑</button>

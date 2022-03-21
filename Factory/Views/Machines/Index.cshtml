@@ -31,10 +31,7 @@
             <tr>
               <th scope="row"></th>
               <td>
-                @using(@Html.BeginForm("Edit", "Machines")) {
-                  @Html.Hidden("id", machine.MachineId)
-                  <button type="submit" class="btn btn-default">⌨</button>
-                }
+                @Html.ActionLink("⌨", "Edit", new {id = machine.MachineId})
               </td>
               <td>
                 @using(@Html.BeginForm("Delete", "Machines")) {
