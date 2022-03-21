@@ -1,7 +1,5 @@
 @{Layout = "_Layout";}
 
-@using System.Collections.Generic;
-@using Factory.Models;
 @model Factory.Models.Engineer;
 
 <div class="card">
@@ -31,7 +29,7 @@
         <div class="col-auto">
           Address
           @Html.TextBoxFor(model => model.Address1, new {@class = "form-control", placeholder = "Street", required="required"})
-          @Html.TextBoxFor(model => model.Address2, new {@class = "form-control", placeholder = "City, State Zipcode", required="required"})
+          @Html.TextBoxFor(model => model.Address2, new {@class = "form-control", placeholder = "City, State #####", required="required"})
         </div>
         <div class="col-auto">
           Business Hours
