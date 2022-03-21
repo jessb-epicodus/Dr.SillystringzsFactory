@@ -13,8 +13,10 @@ namespace Factory.Controllers {
       _db = db;
     }
     public ActionResult Index() {
-      List<Engineer> model = _db.Engineers.ToList();
-      ViewBag.Engineers = _db.Engineers.ToList();
+      ViewBag.Engineers = _db.Engineers
+        .Include(engineer => engineer.JoinEntities)
+        .ThenInclude(join => join.Machine)
+        .ToList();
       return View(_db.Engineers.OrderBy(engineer => engineer.Company).ToList());
     }
     public ActionResult Create() {
@@ -32,7 +34,7 @@ namespace Factory.Controllers {
     }
     public ActionResult Edit(int id) {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+      // ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
       return View(thisEngineer);
     }
     [HttpPost]
@@ -42,7 +44,7 @@ namespace Factory.Controllers {
       }
       _db.Entry(engineer).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new {id= engineer.EngineerId});
     }
     public ActionResult Delete(int id) {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);

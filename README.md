@@ -15,7 +15,7 @@
 
 ## Description
 
-This is a web app is intended to help business manage their engineers and the machines they are licensed to fix.  A user should be able to add and view a list of engineers and machines and each of their respective details. 
+This is a web app is intended to help business manage their engineers and the machines they are licensed to service.  A user should be able to add and view a list of engineers and machines and each of their respective details. 
 
 ## Setup/Installation Requirements
 

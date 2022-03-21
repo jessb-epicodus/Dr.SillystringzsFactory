@@ -6,22 +6,23 @@
 
 <div class="card">
   <div class="card-header">
-    <h3>New Machine</h3>
+    <h3>Edit Machine</h3>
   </div>
   <div class="card-body">
     <p class="card-text">
       <div class="col-auto">
       @using (Html.BeginForm()) {
+        @Html.HiddenFor(model => model.MachineId)
         <div class="col-auto">
           Make & Model
-          @Html.TextBoxFor(model => model.MakeModel, new {@class = "form-control", placeholder = "Make Model", required="required"})
+          @Html.EditorFor(model => model.MakeModel, new {@class = "form-control", required="required"})
         </div>
         <div class="col-auto">
           Serial Number
-          @Html.TextBoxFor(model => model.SerialId, new {@class = "form-control", placeholder = "00XXX123X0", required="required"})
+          @Html.EditorFor(model => model.SerialId, new {@class = "form-control", required="required"})
         </div>
         <br>
-        <input type="submit" value="Submit" class="btn btn-dark" />
+        <input type="submit" value="Save" class="btn btn-dark" />
       }
     </p>
   </div>
