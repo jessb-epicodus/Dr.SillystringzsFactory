@@ -75,7 +75,7 @@ namespace Factory.Controllers {
       var joinEntry = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
       _db.EngineerMachine.Remove(joinEntry);
       _db.SaveChanges();
-      return View();
+      return RedirectToAction("Index");
     }
   }
 }
