@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using Factory.Models;
 
 namespace Factory.Controllers {
@@ -16,8 +12,6 @@ namespace Factory.Controllers {
     public ActionResult Index() {
       ViewBag.Engineers = _db.Engineers.OrderBy(engineer => engineer.Company).ToList();
       ViewBag.Machines = _db.Machines.OrderBy(machine => machine.MakeModel).ToList();
-      // _db.Engineers.OrderBy(engineer => engineer.Company).ToList();
-      // _db.Machines.OrderBy(machine => machine.MakeModel).ToList();
       return View();
     }
   }
